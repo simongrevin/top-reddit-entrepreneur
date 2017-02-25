@@ -3,4 +3,5 @@
 ### How to get started
     virtualenv .
     source bin/activate
+    pip install -r requirements.txt
     python main.py
