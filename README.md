@@ -12,9 +12,8 @@ Create a virtualenv and install dependencies
     source bin/activate
     pip install -r requirements.txt
 
-
 Launch the script
 
-    python main.py
+    python main.py /path/to/mail.conf
 
-If it doesn't work, try changing the "Access for less secure apps" to Enabled (it was enabled, change it to disabled and than back to enabled) : https://myaccount.google.com/security
+If it doesn't work, try changing the "Access for less secure apps" to Enabled in Google Security Settings (it was enabled, change it to disabled and than back to enabled) : https://myaccount.google.com/security
