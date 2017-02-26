@@ -36,10 +36,11 @@ for link in soup.find_all('a', class_="title")[0:10]:
 
 # Setting the email
 fromaddr = config['EMAIL']['From']
-toaddr = config['EMAIL']['To']
+recipients = config['EMAIL']['To'].split(',')
+
 msg = MIMEMultipart()
 msg['From'] = fromaddr
-msg['To'] = toaddr
+msg['To'] = ', '.join(recipients)
 msg['Subject'] = subject
 msg.attach(MIMEText(body, 'html'))
 
@@ -51,7 +52,7 @@ password = config['AUTH']['Password']
 server = smtplib.SMTP('smtp.gmail.com', 587)
 server.starttls()
 server.login(username, password)
-server.sendmail(fromaddr, toaddr, msg.as_string())
+server.sendmail(fromaddr, recipients, msg.as_string())
 server.quit()
 
 print("mail sent")
